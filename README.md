@@ -1,7 +1,20 @@
-# README
+# マッスルカレンダー
+<hr>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# サイト概要
+
+# サイトテーマ
+
+# テーマを選んだ理由
+
+# ターゲットユーザ
+
+# 主な利用シーン
+
+# 設計書
+
+# チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/1_VBYFMSuf72JxTJgXu8pbXwTf1nrXhEHTTuMpAy_wUM/edit?usp=sharing
 
 Things you may want to cover:
 
