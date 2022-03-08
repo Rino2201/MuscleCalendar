@@ -28,7 +28,8 @@
 https://drive.google.com/file/d/18Bhq2CExp250Xe0DE50sS3OrGdll1e_j/view?usp=sharing<br>
 <テーブル定義書><br>
 https://docs.google.com/spreadsheets/d/1QCtpy6UsmZ2C0_V0e_oDUH-w6fYjy9Wb/edit?usp=sharing&ouid=117287871501650981241&rtpof=true&sd=true<br>
-
+<詳細設計><br>
+https://docs.google.com/spreadsheets/d/1c6cqJyBCnm8CkM6I2k-ehxpKuyZOSAnsFUXTTNLz2HA/edit?usp=sharing<br>
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1_VBYFMSuf72JxTJgXu8pbXwTf1nrXhEHTTuMpAy_wUM/edit?usp=sharing<br>
