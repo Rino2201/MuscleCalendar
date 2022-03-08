@@ -24,7 +24,10 @@
 ・他人のトレーニング方法を知りたいとき<br>
 
 ## 設計書
-<鋭意製作中><br>
+<ER図><br>
+https://drive.google.com/file/d/18Bhq2CExp250Xe0DE50sS3OrGdll1e_j/view?usp=sharing<br>
+<テーブル定義書><br>
+
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1_VBYFMSuf72JxTJgXu8pbXwTf1nrXhEHTTuMpAy_wUM/edit?usp=sharing<br>
