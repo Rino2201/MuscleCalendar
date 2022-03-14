@@ -10,7 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_13_121117) do
+ActiveRecord::Schema.define(version: 2022_03_14_032206) do
+
+  create_table "menus", force: :cascade do |t|
+    t.integer "part_id", null: false
+    t.string "menu_name", default: "", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "parts", force: :cascade do |t|
+    t.string "part", default: "", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "trainings", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "menu_id", null: false
+    t.integer "weight"
+    t.integer "rep"
+    t.integer "set"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tweets", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "training_id", null: false
+    t.string "title", default: "", null: false
+    t.text "text", default: "", null: false
+    t.string "image_id", default: ""
+    t.datetime "start_time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "user_name", default: "", null: false
