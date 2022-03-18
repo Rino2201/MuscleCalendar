@@ -14,13 +14,13 @@ ActiveRecord::Schema.define(version: 2022_03_14_032206) do
 
   create_table "menus", force: :cascade do |t|
     t.integer "part_id", null: false
-    t.string "menu_name", default: "", null: false
+    t.string "menu_name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "parts", force: :cascade do |t|
-    t.string "part", default: "", null: false
+    t.string "part", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -37,20 +37,20 @@ ActiveRecord::Schema.define(version: 2022_03_14_032206) do
 
   create_table "tweets", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "training_id", null: false
-    t.string "title", default: "", null: false
-    t.text "text", default: "", null: false
-    t.string "image_id", default: ""
+    t.integer "training_id"
+    t.string "title", null: false
+    t.text "text", null: false
+    t.string "image_id"
     t.datetime "start_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "user_name", default: "", null: false
-    t.string "introduction", default: "", null: false
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
+    t.string "name", null: false
+    t.string "introduction"
+    t.string "email", null: false
+    t.string "encrypted_password", null: false
     t.boolean "is_active", default: true, null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
