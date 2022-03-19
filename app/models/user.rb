@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :tweets, dependent: :destroy
   has_many :trainings, dependent: :destroy
 
+  # enum is_active: { active: true, out: false }
+
 end

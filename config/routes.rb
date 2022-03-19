@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     get "/about", to: "homes#about"
     resources :users, only:[:index, :show, :edit, :update] do
       collection do
+        get "quit"
         patch "out"
       end
     end
