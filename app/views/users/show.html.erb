@@ -16,6 +16,9 @@
           <p>
             <%= attachment_image_tag tweet, :image, format: 'jpeg', size: '100x100' %>
           </p>
+          <p>
+            <%= link_to "#{tweet.comments.count} コメント", tweet_path(tweet.id) %>
+          </p>
           <% if @user == current_user %>
             <%= link_to '編集', edit_tweet_path(tweet), class: "btn btn-success" %>
           <% end %>

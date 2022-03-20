@@ -10,6 +10,9 @@
           <% end %>
           <p><%= tweet.text %></p>
           <p>
+            <%= link_to "#{tweet.comments.count} コメント", tweet_path(tweet.id) %>
+          </p>
+          <p>
             <%= attachment_image_tag tweet, :image, format: 'jpeg', size: '100x100' %>
           </p>
         </div>
