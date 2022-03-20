@@ -1,2 +1,28 @@
-<h1>Menus#index</h1>
-<p>Find me in app/views/menus/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="form-group">
+      <h4>トレーニングメニュー一覧・追加</h4>
+        <%= form_with model: @menu, url:menus_path, local: true do |f| %>
+          <%= f.text_field :menu_name, placeholder: "メニュー名" %>
+          <%= f.submit "新規登録", class: "btn btn-success" %>
+        <% end %>
+        <table class="table table-light">
+          <thead class="table-active text-center">
+            <tr class="">
+              <th class="bg-muted">メニュー名</th>
+              <th class="bg-muted"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @menus.each do |menu| %>
+            <tr>
+              <td class="text-center"><%= menu.menu_name %></td>
+              <td class="text-center"><%= link_to "編集する", edit_menu_path(menu), class: "btn btn-primary" %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <div>
+    </div>
+  </div>
+</div>
