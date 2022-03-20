@@ -3,15 +3,14 @@
     <div class="col">
       <% @tweets.each do |tweet| %>
         <div>
-          <p><%= tweet.user.name %></p>
-          <%= tweet.created_at.strftime('%Y/%m/%d %H:%M') %>
+          <p><%= tweet.user.name %> [<%= tweet.created_at.strftime('%Y/%m/%d %H:%M') %>]</P>
           <%= link_to tweet_path(tweet.id) do %>
             <p><%= tweet.title %></p>
           <% end %>
           <p><%= tweet.text %></p>
-          <p>
-            <%= link_to "#{tweet.comments.count} コメント", tweet_path(tweet.id) %>
-          </p>
+          <p>[<%= link_to "コメント #{tweet.comments.count}", tweet_path(tweet.id) %>]
+
+          <%= render 'favorite', tweet: tweet %></p>
           <p>
             <%= attachment_image_tag tweet, :image, format: 'jpeg', size: '100x100' %>
           </p>
