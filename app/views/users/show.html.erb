@@ -1,11 +1,35 @@
 <div class="container">
   <div class="row">
-    <div class="col">
+    <div class="">
       <h1><%= @user.name %>のマイページ</h1>
-        <% if @user == current_user %>
+      <table class='table'>
+        <tr>
+      	  <th>ユーザーネーム:</th>
+      	  <th><%= @user.name %></th>
+        </tr>
+        <tr>
+      	  <th>自己紹介:</th>
+      	  <th><%= @user.introduction %></th>
+        </tr>
+        <tr>
+        <tr>
+          <th>フォロー</th>
+          <th><%= link_to @user.followings.count, user_followings_path(@user) %></th>
+        </tr>
+        <tr>
+          <th>フォロワー</th>
+          <th><%= link_to @user.followers.count, user_followers_path(@user) %></th>
+        </tr>
+      </table>
+      <div class=''>
+        <% if current_user != @user %>
+          <td><%= render "follows/btn", user: @user %></td>
+        <% else %>
           <%= link_to 'プロフィール編集', edit_user_path(@user), class: "btn btn-success" %>
           <%= link_to '退会する', quit_users_path(@user), class: "btn btn-danger" %>
         <% end %>
+      </div>
+
       <% @tweets.each do |tweet| %>
         <div>
           <%= tweet.created_at.strftime('%Y/%m/%d %H:%M') %>

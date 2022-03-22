@@ -3,7 +3,9 @@
     <div class="col">
       <% @tweets.each do |tweet| %>
         <div>
-          <p><%= tweet.user.name %> [<%= tweet.created_at.strftime('%Y/%m/%d %H:%M') %>]</P>
+          <%= link_to user_path(tweet.user.id) do %>
+            <p><%= tweet.user.name %><% end %>
+               [<%= tweet.created_at.strftime('%Y/%m/%d %H:%M') %>]</P>
           <%= link_to tweet_path(tweet.id) do %>
             <p><%= tweet.title %></p>
           <% end %>

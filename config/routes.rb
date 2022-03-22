@@ -9,6 +9,9 @@ Rails.application.routes.draw do
         get "quit"
         patch "out"
       end
+      resource :follows, only: [:create, :destroy]
+      	get 'followings' => 'follows#followings', as: 'followings'
+      	get 'followers' => 'follows#followers', as: 'followers'
     end
     resources :tweets do
       resources :comments, only: [:create, :destroy]
