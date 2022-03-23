@@ -19,5 +19,4 @@ Rails.application.routes.draw do
     end
     resources :trainings
     resources :menus, only:[:index, :create, :edit, :update]
-    resources :parts, only:[:index, :create, :edit, :update]
 end

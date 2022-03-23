@@ -1,6 +1,5 @@
 class Menu < ApplicationRecord
 
-  belongs_to :training
-  belongs_to :part
+  has_many :trainings, dependent: :destroy
 
 end

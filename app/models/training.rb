@@ -1,6 +1,6 @@
 class Training < ApplicationRecord
 
   belongs_to :user
-  has_many :menus, dependent: :destroy
+  belongs_to :menu
 
 end

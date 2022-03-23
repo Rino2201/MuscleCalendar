@@ -35,14 +35,8 @@ ActiveRecord::Schema.define(version: 2022_03_22_051131) do
   end
 
   create_table "menus", force: :cascade do |t|
-    t.integer "part_id", null: false
     t.string "menu_name", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "parts", force: :cascade do |t|
-    t.string "part", null: false
+    t.string "part_name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -59,7 +53,7 @@ ActiveRecord::Schema.define(version: 2022_03_22_051131) do
 
   create_table "tweets", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "training_id"
+    t.integer "training_id", null: false
     t.string "title", null: false
     t.text "text", null: false
     t.string "image_id"

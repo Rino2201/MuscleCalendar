@@ -25,6 +25,12 @@
           <li>
             <%= link_to "ツイート投稿", new_tweet_path, class: 'nav-link text-dark' %>
           </li>
+          <li>
+            <%= link_to "メニュー一覧", menus_path, class: 'nav-link text-dark' %>
+          </li>
+          <li>
+            <%= link_to "トレーニング一覧", trainings_path, class: 'nav-link text-dark' %>
+          </li>
         <% else %>
           <li>
             <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %>
