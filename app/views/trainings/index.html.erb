@@ -1,2 +1,30 @@
-<h1>Trainings#index</h1>
-<p>Find me in app/views/trainings/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col" >
+      <table class="table table-light">
+        <thead class="table-active text-center">
+          <tr class="">
+            <th class="bg-muted">部位</th>
+            <th class="bg-muted">メニュー</th>
+            <th class="bg-muted">重量</th>
+            <th class="bg-muted">回数</th>
+            <th class="bg-muted">セット数</th>
+            <th class="bg-muted"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @trainings.each do |training| %>
+            <tr>
+              <td class="text-center"><%= training.menu.part_name %></td>
+              <td class="text-center"><%= training.menu.menu_name %></td>
+              <td class="text-center"><%= training.weight %>kg</td>
+              <td class="text-center"><%= training.rep %>回</td>
+              <td class="text-center"><%= training.set %>セット</td>
+              <td class="text-center"><%= link_to "編集する", edit_training_path(training), class: "btn btn-primary" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
