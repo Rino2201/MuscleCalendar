@@ -47,17 +47,17 @@ ActiveRecord::Schema.define(version: 2022_03_22_051131) do
     t.integer "weight"
     t.integer "rep"
     t.integer "set"
+    t.date "start_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tweets", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "training_id", null: false
     t.string "title", null: false
     t.text "text", null: false
     t.string "image_id"
-    t.datetime "start_time"
+    t.date "start_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

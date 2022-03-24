@@ -1,0 +1,28 @@
+<table class="table table-light">
+  <thead class="table-active text-center">
+    <tr class="">
+      <th class="bg-muted">部位</th>
+      <th class="bg-muted">メニュー</th>
+      <th class="bg-muted">重量</th>
+      <th class="bg-muted">回数</th>
+      <th class="bg-muted">セット数</th>
+      <th class="bg-muted"></th>
+      <th class="bg-muted"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% trainings.each do |training| %>
+      <tr>
+        <td class="text-center"><%= training.menu.part_name %></td>
+        <td class="text-center"><%= training.menu.menu_name %></td>
+        <td class="text-center"><%= training.weight %>kg</td>
+        <td class="text-center"><%= training.rep %>回</td>
+        <td class="text-center"><%= training.set %>セット</td>
+        <td class="text-center"><%= link_to "編集する", edit_training_path(training), class: "btn btn-primary" %></td>
+        <td class="text-center">
+          <%= link_to "削除", training_path(training), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -7,6 +7,7 @@ class CreateTrainings < ActiveRecord::Migration[6.1]
       t.integer :weight
       t.integer :rep
       t.integer :set
+      t.date :start_time
       t.timestamps
     end
   end

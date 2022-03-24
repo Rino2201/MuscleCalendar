@@ -10,6 +10,7 @@
             <p><%= tweet.title %></p>
           <% end %>
           <p><%= tweet.text %></p>
+          <%= render 'trainings/daytraining', trainings: tweet.user.trainings.where(start_time: tweet.start_time) %>
           <p>[<%= link_to "コメント #{tweet.comments.count}", tweet_path(tweet.id) %>]
 
           <%= render 'favorite', tweet: tweet %></p>

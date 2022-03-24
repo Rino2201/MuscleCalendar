@@ -15,10 +15,15 @@ class TrainingsController < ApplicationController
   end
 
   def show
+    @training = Training.find(params[:id])
+    @trainings = Training.where(start_time: @training.start_time)
   end
 
   def index
-    @trainings = Training.all
+    # @trainings = Training.all
+    @training = Training.new
+    @user = current_user
+    @trainings = Training.where(user_id: @user).order(start_time: "desc").page(params[:page]).per(8)
   end
 
   def edit
@@ -34,8 +39,14 @@ class TrainingsController < ApplicationController
     end
   end
 
+  def destroy
+    @training = Training.find(params[:id])
+    @training.destroy
+    redirect_to trainings_path
+  end
+
   def training_params
-    params.require(:training).permit(:user_id, :menu_id, :weight, :rep, :set)
+    params.require(:training).permit(:user_id, :menu_id, :weight, :rep, :set, :start_time)
   end
 
 end
