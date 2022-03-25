@@ -23,16 +23,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def quit
-    @user = current_user
-  end
-
-  def out
-    @user = current_user
-    @user.update(is_active: false)
-    reset_session
-    flash[:notice] = "退会処理を実行いたしました"
-    redirect_to root_path
+  def destroy
   end
 
   def user_params

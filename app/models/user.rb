@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  attachment :image
+
   has_many :tweets, dependent: :destroy
   has_many :trainings, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -28,7 +30,5 @@ class User < ApplicationRecord
   def following?(user)
     followings.include?(user)
   end
-
-  # enum is_active: { active: true, out: false }
 
 end

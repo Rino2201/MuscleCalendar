@@ -6,6 +6,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       ## Database authenticatable
       t.string :name,               null: false
       t.string :introduction
+      t.string  :image_id
       t.string :email,              null: false
       t.string :encrypted_password, null: false
       t.boolean :is_active,         null: false, default: "true"

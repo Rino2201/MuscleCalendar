@@ -5,10 +5,6 @@ Rails.application.routes.draw do
     root to: "homes#top"
     get "/about", to: "homes#about"
     resources :users, only:[:index, :show, :edit, :update] do
-      collection do
-        get "quit"
-        patch "out"
-      end
       resource :follows, only: [:create, :destroy]
       	get 'followings' => 'follows#followings', as: 'followings'
       	get 'followers' => 'follows#followers', as: 'followers'
