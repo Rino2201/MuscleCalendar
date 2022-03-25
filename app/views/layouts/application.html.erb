@@ -14,7 +14,8 @@
 
   <body class="d-flex flex-column vh-100">
     <%= render 'layouts/header' %>
-      <main class="mb-auto">
+      <main class="container-fluid py-4 mw-md <%= devise_controller? ? 'mw-md' : 'mw-xl' %>">
+
         <%= yield %>
       </main>
     <%= render 'layouts/footer' %>
