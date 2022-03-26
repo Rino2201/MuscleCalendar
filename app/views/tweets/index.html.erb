@@ -2,14 +2,21 @@
   <div class="row">
     <div class="col">
       <% @tweets.each do |tweet| %>
-        <div>
-          <%= link_to user_path(tweet.user.id) do %>
-            <p><%= tweet.user.name %><% end %>
-               [<%= tweet.created_at.strftime('%Y/%m/%d %H:%M') %>]</P>
-          <%= link_to tweet_path(tweet.id) do %>
-            <p><%= tweet.text %></p>
-          <% end %>
-          <%= render 'trainings/daytraining', trainings: tweet.user.trainings.where(start_time: tweet.start_time) %>
+        <div class="border border-dark p-2 m-2">
+          <div class="p-2 border-bottom border-dark">
+            <%= attachment_image_tag tweet.user, :image, format: 'jpeg', size: '50x50' %>
+            <%= link_to user_path(tweet.user.id) do %>
+              <%= tweet.user.name %><% end %>
+            <%= link_to tweet_path(tweet.id) do %>
+              [<%= tweet.created_at.strftime('%Y/%m/%d %H:%M') %>]
+            <% end %>
+          </div>
+          <div class="p-2 border-bottom border-dark">
+            <%= tweet.text %>
+          </div>
+          <div class="p-2 border-bottom border-dark">
+            <%= render 'trainings/daytraining', trainings: tweet.user.trainings.where(start_time: tweet.start_time) %>
+          </div>
           <p>[<%= link_to "コメント #{tweet.comments.count}", tweet_path(tweet.id) %>]
 
           <%= render 'favorite', tweet: tweet %></p>
@@ -21,3 +28,4 @@
     </div>
   </div>
 </div>
+

@@ -1,36 +1,50 @@
 <div class="container">
   <div class="row">
     <div>
-      <p><%= @tweet.user.name %>
-        [<%= @tweet.created_at.strftime('%Y/%m/%d %H:%M') %>]</p>
-      <p><%= @tweet.text %></p>
-      <p>
-        <%= attachment_image_tag @tweet, :image, format: 'jpeg', size: '500x500' %>
-      </p>
-      <% if @tweet.user == current_user %>
-        <%= link_to '編集', edit_tweet_path(@tweet), class: "btn btn-success" %>
-      <% end %>
-      <% if @tweet.user == current_user %>
-        <%= link_to "削除", tweet_path(@tweet), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
-      <% end %>
-      <%= render 'trainings/daytraining', trainings: @tweet.user.trainings.where(start_time: @tweet.start_time) %>
-      <div>
-        <%= form_with model: [@tweet, @comment] do |f| %>
-          <p><%= f.text_area :text, rows: '5', placeholder: "コメント" %></p>
-          <p><%= f.submit "送信" %></p>
-        <% end %>
-      </div>
-      <div>
-        <p>[コメント数 : <%= @tweet.comments.count %>]
-        <%= render 'favorite', tweet: @tweet %></p>
-        <% @tweet.comments.each do |comment| %>
-          <p><%= comment.user.name %> [<%= comment.created_at.strftime('%Y/%m/%d %H:%M') %>]</p>
-          <p><%= comment.text %></p>
-          <% if comment.user == current_user %>
-            <%= link_to "削除", tweet_comment_path(comment.tweet, comment), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
+      <div class="border border-dark p-2 m-2">
+        <div class="p-2 border-bottom border-dark">
+          <%= attachment_image_tag @tweet.user, :image, format: 'jpeg', size: '50x50' %>
+            <%= link_to user_path(@tweet.user.id) do %>
+              <%= @tweet.user.name %>
+            <% end %>
+              [<%= @tweet.created_at.strftime('%Y/%m/%d %H:%M') %>]
+        </div>
+        <div class="p-2 border-bottom border-dark">
+          <%= @tweet.text %>
+        </div>
+        <div class="p-2 border-bottom border-dark">
+          <%= attachment_image_tag @tweet, :image, format: 'jpeg', size: '250x250' %>
+        </div>
+        <div class="p-2 border-bottom border-dark">
+          <% if @tweet.user == current_user %>
+            <%= link_to '編集', edit_tweet_path(@tweet), class: "btn btn-outline-success btn-sm" %>
           <% end %>
-        <% end %>
-      </div>
+          <% if @tweet.user == current_user %>
+            <%= link_to "削除", tweet_path(@tweet), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-outline-danger btn-sm" %>
+          <% end %>
+        </div>
+        <div class="p-2 border-bottom border-dark">
+          <%= render 'trainings/daytraining', trainings: @tweet.user.trainings.where(start_time: @tweet.start_time) %>
+        </div>
+        <div class="p-2 border-bottom border-dark">
+          <%= form_with model: [@tweet, @comment] do |f| %>
+            <%= f.text_area :text, rows: '5', placeholder: "コメント" %>
+            <%= f.submit "送信" %>
+          <% end %>
+        </div>
+        <div class="p-2 border-bottom border-dark">
+          [コメント数 : <%= @tweet.comments.count %>]
+          <%= render 'favorite', tweet: @tweet %>
+        </div>
+          <% @tweet.comments.each do |comment| %>
+            <%= attachment_image_tag comment.user, :image, format: 'jpeg', size: '30x30' %>
+            <%= comment.user.name %> [<%= comment.created_at.strftime('%Y/%m/%d %H:%M') %>]
+            <p><%= comment.text %></p>
+            <% if comment.user == current_user %>
+              <%= link_to "削除", tweet_comment_path(comment.tweet, comment), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-outline-danger btn-sm" %>
+            <% end %>
+          <% end %>
+        </div>
     </div>
   </div>
 </div>

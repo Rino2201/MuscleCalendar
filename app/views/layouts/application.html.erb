@@ -12,10 +12,9 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="d-flex flex-column vh-100">
+  <body class="d-flex flex-column">
     <%= render 'layouts/header' %>
-      <main class="container-fluid py-4 mw-md <%= devise_controller? ? 'mw-md' : 'mw-xl' %>">
-
+      <main class="bg-white p-5">
         <%= yield %>
       </main>
     <%= render 'layouts/footer' %>
