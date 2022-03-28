@@ -21,7 +21,7 @@ class TweetsController < ApplicationController
   end
 
   def index
-    @tweets = Tweet.all
+    @tweets = Tweet.all.order(id: "DESC")
   end
 
   def edit

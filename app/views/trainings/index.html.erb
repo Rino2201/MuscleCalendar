@@ -1,16 +1,10 @@
-<div class="container">
-  <div class="row">
-    <div class="col" >
-      <%= month_calendar(events: @trainings) do |date, trainings| %>
-        <div>
-          <%= date.day %>
-          <% trainings.each do |training| %>
-              <%= link_to training_path(training) do %>
-                <%= training.menu.menu_name %>
-              <% end %>
+<div class="container-fluid">
+  <%= month_calendar(events: @trainings) do |date, trainings| %>
+    <%= date.day %>
+      <% trainings.each do |training| %>
+          <%= link_to training_path(training) do %>
+            <p>筋肉</p>
           <% end %>
-        </div>
       <% end %>
-    </div>
-  </div>
+  <% end %>
 </div>

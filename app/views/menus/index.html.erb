@@ -3,17 +3,17 @@
     <div class="col">
       <h2 class="text-center">メニュー作成</h2>
         <%= form_with model: @menu, local: true do |f| %>
-          <div class="form_input">
+          <div class="form_input w-75">
             <%= f.label :部位名 %>
             <%= f.text_field :part_name, class: "form-control" %>
             <%= f.label :メニュー名 %>
-            <%= f.text_field :menu_name, class: "form-control" %>
-            <%= f.submit "投稿する", class: "btn btn-success" %>
+            <p><%= f.text_field :menu_name, class: "form-control" %></p>
+            <%= f.submit "投稿する", class: "btn btn-outline-success" %>
           </div>
         <% end %>
     </div>
     <div class="col" >
-      <table class="table table-light">
+      <table class="table table-bordered">
         <thead class="table-active text-center">
           <tr class="">
             <th class="bg-muted">部位</th>
@@ -26,7 +26,7 @@
             <tr>
               <td class="text-center"><%= menu.part_name %></td>
               <td class="text-center"><%= menu.menu_name %></td>
-              <td class="text-center"><%= link_to "編集する", edit_menu_path(menu), class: "btn btn-primary" %></td>
+              <td class="text-center"><%= link_to "編集する", edit_menu_path(menu), class: "btn btn-outline-primary" %></td>
             </tr>
           <% end %>
         </tbody>

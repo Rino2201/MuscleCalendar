@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-4">
-      <div class="">
+      <div class="profile-img">
         <%= attachment_image_tag @user, :image, format: 'jpeg', size: '100x100' %>
       </div>
       <ul class="list-group">
@@ -25,11 +25,11 @@
     </div>
     <div class="col-7 offset-1">
       <% @tweets.each do |tweet| %>
-        <div class="border border-5 border-dark p-2 m-2">
-          <div class="p-2 border-bottom border-dark">
+        <div class="border border-5 border-warning p-2 m-2">
+          <div class="p-2 border-3 border-bottom border-warning">
             <%= tweet.text %>
           </div>
-          <div class="p-1 border-bottom border-dark">
+          <div class="p-1 border-3 border-bottom border-warning">
             <%= link_to tweet_path(tweet.id) do %>
               <%= tweet.created_at.strftime('%Y/%m/%d %H:%M') %>
             <% end %>
@@ -37,8 +37,9 @@
           <div class="p-1">
             <%= attachment_image_tag tweet, :image, format: 'jpeg', size: '100x100' %>
           </div>
-          <div class="p-1 border-bottom border-dark">
+          <div class="p-1 border-3 border-bottom border-warning">
             <%= link_to "#{tweet.comments.count} コメント", tweet_path(tweet.id) %>
+            <%= render 'tweets/favorite', tweet: tweet %>
           </div>
           <div class="pt-2">
             <% if @user == current_user %>
