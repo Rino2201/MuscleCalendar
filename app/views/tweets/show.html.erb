@@ -9,7 +9,7 @@
             <% end %>
               [<%= @tweet.created_at.strftime('%Y/%m/%d %H:%M') %>]
         </div>
-        <div class="p-2 border-3 border-bottom border-warning">
+        <div class="text-break p-2 border-3 border-bottom border-warning">
           <%= @tweet.text %>
         </div>
         <div class="p-2 border-3 border-bottom border-warning">
@@ -44,7 +44,7 @@
              [<%= comment.created_at.strftime('%Y/%m/%d %H:%M') %>]
             <p><%= comment.text %></p>
             <% if comment.user == current_user %>
-              <%= link_to "削除", tweet_comment_path(comment.tweet, comment), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-outline-danger btn-sm" %>
+              <p><%= link_to "削除", tweet_comment_path(comment.tweet, comment), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-outline-danger btn-sm" %></p>
             <% end %>
           <% end %>
         </div>

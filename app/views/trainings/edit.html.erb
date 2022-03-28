@@ -5,8 +5,10 @@
         <%= form_with model: @training, local: true do |f| %>
           <div class="form_input">
             <%= f.collection_select :menu_id, Menu.all, :id, :menu_name, options = { include_blank: true }, class: "form-control" %>
-            <%= f.label :重量kg %>
+            <%= f.label :重量 %>
             <%= f.text_field :weight, class: "form-control" %>
+            <%= f.label :単位 %>
+            <%= f.text_field :unit, class: "form-control" %>
             <%= f.label :回数 %>
             <%= f.text_field :rep, class: "form-control" %>
             <%= f.label :セット数 %>
