@@ -1,0 +1,40 @@
+<header class="bg-warning">
+  <nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
+    <a class="navbar-brand p-3" href="/"><%= image_tag '/images/logo.png', :size => "200x50" %></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                  aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto">
+        <% if user_signed_in? %>
+        <li class="nav-item">
+          <li>
+            <%= link_to 'マイページ', user_path(current_user.id), class: 'nav-link text-dark' %>
+          </li>
+          <li>
+            <%= link_to "タイムライン", tweets_path, class: 'nav-link text-dark' %>
+          </li>
+          <li>
+            <%= link_to "ツイート投稿", new_tweet_path, class: 'nav-link text-dark' %>
+          </li>
+          <li>
+            <%= link_to "メニュー", menus_path, class: 'nav-link text-dark' %>
+          </li>
+          <li>
+            <%= link_to "カレンダー/記録", trainings_path, class: 'nav-link text-dark' %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %>
+          </li>
+          <li>
+            <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %>
+          </li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

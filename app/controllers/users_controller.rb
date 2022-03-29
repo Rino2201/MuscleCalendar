@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @tweets = @user.tweets
+    @tweets = @user.tweets.order(id: "DESC")
   end
 
   def index
@@ -23,20 +23,11 @@ class UsersController < ApplicationController
     end
   end
 
-  def quit
-    @user = current_user
-  end
-
-  def out
-    @user = current_user
-    @user.update(is_active: false)
-    reset_session
-    flash[:notice] = "退会処理を実行いたしました"
-    redirect_to root_path
+  def destroy
   end
 
   def user_params
-    params.require(:user).permit(:name, :introduction)
+    params.require(:user).permit(:name, :introduction, :image)
   end
 
   def ensure_correct_user

@@ -5,10 +5,9 @@ Rails.application.routes.draw do
     root to: "homes#top"
     get "/about", to: "homes#about"
     resources :users, only:[:index, :show, :edit, :update] do
-      collection do
-        get "quit"
-        patch "out"
-      end
+      resource :follows, only: [:create, :destroy]
+      	get 'followings' => 'follows#followings', as: 'followings'
+      	get 'followers' => 'follows#followers', as: 'followers'
     end
     resources :tweets do
       resources :comments, only: [:create, :destroy]
@@ -16,5 +15,4 @@ Rails.application.routes.draw do
     end
     resources :trainings
     resources :menus, only:[:index, :create, :edit, :update]
-    resources :parts, only:[:index, :create, :edit, :update]
 end

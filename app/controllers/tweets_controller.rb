@@ -5,6 +5,7 @@ class TweetsController < ApplicationController
 
   def create
     @tweet = Tweet.new(tweet_params)
+    @user = current_user
     @tweet.user_id = current_user.id
     if @tweet.save
       redirect_to tweets_path
@@ -20,7 +21,7 @@ class TweetsController < ApplicationController
   end
 
   def index
-    @tweets = Tweet.all
+    @tweets = Tweet.all.order(id: "DESC")
   end
 
   def edit
@@ -45,7 +46,7 @@ class TweetsController < ApplicationController
   private
 
   def tweet_params
-    params.require(:tweet).permit(:user_id, :training_id, :title, :text, :image, :start_time)
+    params.require(:tweet).permit(:user_id, :text, :image, :start_time)
   end
 
 end

@@ -1,2 +1,8 @@
-<h1>Trainings#show</h1>
-<p>Find me in app/views/trainings/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <h2><%= @training.start_time %></h2>
+    <div class="col" >
+      <%= render 'daytraining', trainings: @trainings %>
+    </div>
+  </div>
+</div>

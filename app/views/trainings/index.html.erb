@@ -1,2 +1,17 @@
-<h1>Trainings#index</h1>
-<p>Find me in app/views/trainings/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <%= link_to "【トレーニング投稿はこちら】", new_training_path, class: 'btn btn-outline-primary btn-lg' %>
+      <%= month_calendar(events: @trainings) do |date, trainings| %>
+        <%= date.day %>
+          <div class="d-flex flex-wrap">
+          <% trainings.each do |training| %>
+              <%= link_to training_path(training) do %>
+                <i class="fas fa-thumbs-up"></i>
+              <% end %>
+          <% end %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>

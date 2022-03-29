@@ -1,28 +1,36 @@
 <div class="container">
   <div class="row">
-    <div class="form-group">
-      <h4>トレーニングメニュー一覧・追加</h4>
-        <%= form_with model: @menu, url:menus_path, local: true do |f| %>
-          <%= f.text_field :menu_name, placeholder: "メニュー名" %>
-          <%= f.submit "新規登録", class: "btn btn-success" %>
+    <div class="col">
+      <h2 class="text-left">メニュー作成</h2>
+        <%= form_with model: @menu, local: true do |f| %>
+          <div class="form_input w-75">
+            <%= f.label :部位名 %>
+            <%= f.text_field :part_name, class: "form-control" %>
+            <%= f.label :メニュー名 %>
+            <p><%= f.text_field :menu_name, class: "form-control" %></p>
+            <%= f.submit "投稿する", class: "btn btn-outline-success" %>
+          </div>
         <% end %>
-        <table class="table table-light">
-          <thead class="table-active text-center">
-            <tr class="">
-              <th class="bg-muted">メニュー名</th>
-              <th class="bg-muted"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @menus.each do |menu| %>
+    </div>
+    <div class="col" >
+      <table class="table table-bordered">
+        <thead class="table-active text-center">
+          <tr class="">
+            <th class="bg-muted">部位</th>
+            <th class="bg-muted">メニュー</th>
+            <th class="bg-muted"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @menus.each do |menu| %>
             <tr>
+              <td class="text-center"><%= menu.part_name %></td>
               <td class="text-center"><%= menu.menu_name %></td>
-              <td class="text-center"><%= link_to "編集する", edit_menu_path(menu), class: "btn btn-primary" %></td>
+              <td class="text-center"><%= link_to "編集する", edit_menu_path(menu), class: "btn btn-outline-primary" %></td>
             </tr>
-            <% end %>
-          </tbody>
-        </table>
-      <div>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

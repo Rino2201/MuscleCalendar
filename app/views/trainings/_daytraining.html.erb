@@ -1,0 +1,30 @@
+<table class="table table-sm">
+  <thead class="text-center">
+    <tr class="">
+      <th><span class="badge badge-pill badge-dark">部位</span></th>
+      <th><span class="badge badge-pill badge-dark">メニュー</span></th>
+      <th><span class="badge badge-pill badge-dark">重量</span></th>
+      <th><span class="badge badge-pill badge-dark">単位</span></th>
+      <th><span class="badge badge-pill badge-dark">回数</span></th>
+      <th><span class="badge badge-pill badge-dark">セット</span></th>
+      <th><span class="badge badge-dark"></span></th>
+      <th><span class="badge badge-dark"></span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% trainings.each do |training| %>
+      <tr>
+        <td class="text-center"><span class="badge badge-warning"><%= training.menu.part_name %></span></td>
+        <td class="text-center"><span class="badge badge-warning"><%= training.menu.menu_name %></span></td>
+        <td class="text-center"><span class="badge badge-warning"><%= training.weight %></span></td>
+        <td class="text-center"><span class="badge badge-warning"><%= training.unit %></span></td>
+        <td class="text-center"><span class="badge badge-warning"><%= training.rep %></span></td>
+        <td class="text-center"><span class="badge badge-warning"><%= training.set %></span></td>
+        <td class="text-center"><%= link_to "編集", edit_training_path(training), class: "btn btn-outline-primary btn-sm" %></td>
+        <td class="text-center">
+          <%= link_to "削除", training_path(training), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-outline-danger btn-sm" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
