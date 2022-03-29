@@ -20,10 +20,12 @@
         <td class="text-center"><span class="badge badge-warning"><%= training.unit %></span></td>
         <td class="text-center"><span class="badge badge-warning"><%= training.rep %></span></td>
         <td class="text-center"><span class="badge badge-warning"><%= training.set %></span></td>
+      <% if training.user == current_user %>
         <td class="text-center"><%= link_to "編集", edit_training_path(training), class: "btn btn-outline-primary btn-sm" %></td>
         <td class="text-center">
           <%= link_to "削除", training_path(training), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-outline-danger btn-sm" %>
         </td>
+      <% end %>
       </tr>
     <% end %>
   </tbody>
