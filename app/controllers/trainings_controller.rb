@@ -21,7 +21,7 @@ class TrainingsController < ApplicationController
 
   def index
     # @trainings = Training.all
-    @training = Training.new
+    # @training = Training.new
     @user = current_user
     @trainings = Training.where(user_id: @user).order(start_time: "desc").page(params[:page]).per(8)
   end

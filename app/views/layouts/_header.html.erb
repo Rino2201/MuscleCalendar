@@ -11,25 +11,19 @@
         <% if user_signed_in? %>
         <li class="nav-item">
           <li>
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
-          </li>
-          <li>
             <%= link_to 'マイページ', user_path(current_user.id), class: 'nav-link text-dark' %>
           </li>
           <li>
-            <%= link_to "ツイート一覧", tweets_path, class: 'nav-link text-dark' %>
+            <%= link_to "タイムライン", tweets_path, class: 'nav-link text-dark' %>
           </li>
           <li>
             <%= link_to "ツイート投稿", new_tweet_path, class: 'nav-link text-dark' %>
           </li>
           <li>
-            <%= link_to "メニュー一覧", menus_path, class: 'nav-link text-dark' %>
+            <%= link_to "メニュー", menus_path, class: 'nav-link text-dark' %>
           </li>
           <li>
-            <%= link_to "トレーニング投稿", new_training_path, class: 'nav-link text-dark' %>
-          </li>
-          <li>
-            <%= link_to "トレーニング一覧", trainings_path, class: 'nav-link text-dark' %>
+            <%= link_to "カレンダー/記録", trainings_path, class: 'nav-link text-dark' %>
           </li>
         <% else %>
           <li>
