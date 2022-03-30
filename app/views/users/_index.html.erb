@@ -2,6 +2,7 @@
   <tbody>
     <% users.each do |user| %>
       <tr>
+        <td class="profile-img"><%= attachment_image_tag user, :image, format: 'jpeg', size: '30x30' %></td>
         <td><%= user.name %></td>
         <td><%= render "follows/btn", user: user %></td>
         <td><%= link_to '詳細', user, class: "user_#{user.id}" %></td>

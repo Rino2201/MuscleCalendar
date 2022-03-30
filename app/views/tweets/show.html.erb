@@ -9,20 +9,18 @@
             <% end %>
               [<%= @tweet.created_at.strftime('%Y/%m/%d %H:%M') %>]
         </div>
-        <div class="text-break p-2 border-3 border-bottom border-warning">
+        <div class="text-break p-2">
           <%= @tweet.text %>
         </div>
         <div class="p-2 border-3 border-bottom border-warning">
           <%= attachment_image_tag @tweet, :image, format: 'jpeg', size: '250x250' %>
         </div>
-        <div class="p-2 border-3 border-bottom border-warning">
-          <% if @tweet.user == current_user %>
+        <% if @tweet.user == current_user %>
+          <div class="p-2 border-3 border-bottom border-warning">
             <%= link_to '編集', edit_tweet_path(@tweet), class: "btn btn-outline-success btn-sm" %>
-          <% end %>
-          <% if @tweet.user == current_user %>
             <%= link_to "削除", tweet_path(@tweet), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-outline-danger btn-sm" %>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
         <div class="p-2 border-3 border-bottom border-warning">
           <%= render 'trainings/daytraining', trainings: @tweet.user.trainings.where(start_time: @tweet.start_time) %>
         </div>
@@ -32,7 +30,7 @@
             <%= f.submit "送信" %>
           <% end %>
         </div>
-        <div class="p-2 border-3 border-bottom border-warning">
+        <div class="p-2">
           [コメント数 : <%= @tweet.comments.count %>]
           <%= render 'favorite', tweet: @tweet %>
         </div>

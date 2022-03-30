@@ -38,7 +38,7 @@
           <div class="p-1">
             <%= attachment_image_tag tweet, :image, format: 'jpeg', size: '100x100' %>
           </div>
-          <div class="p-1 border-3 border-bottom border-warning">
+          <div class="p-1">
             <%= link_to "#{tweet.comments.count} コメント", tweet_path(tweet.id) %>
             <%= render 'tweets/favorite', tweet: tweet %>
           </div>
