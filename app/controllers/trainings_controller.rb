@@ -16,7 +16,8 @@ class TrainingsController < ApplicationController
 
   def show
     @training = Training.find(params[:id])
-    @trainings = Training.where(start_time: @training.start_time)
+    @user = current_user
+    @trainings = Training.where(start_time: @training.start_time).where(user_id: @user)
   end
 
   def index
